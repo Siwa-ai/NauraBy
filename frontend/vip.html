@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIP Member - SevenMassageSpa</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#070a12;
+color:white;
+}
+
+/* HERO */
+.hero{
+padding:60px 20px;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874");
+background-size:cover;
+background-position:center;
+}
+
+.hero h1{
+color:#d4af37;
+font-size:40px;
+}
+
+.hero p{
+opacity:0.8;
+}
+
+/* CARD VIP */
+.container{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+}
+
+.card{
+background:#111;
+border:1px solid #222;
+border-radius:15px;
+padding:20px;
+text-align:center;
+transition:0.3s;
+}
+
+.card:hover{
+border-color:#d4af37;
+transform:translateY(-5px);
+}
+
+.price{
+color:#d4af37;
+font-size:30px;
+margin:15px 0;
+}
+
+ul{
+list-style:none;
+padding:0;
+}
+
+ul li{
+padding:8px 0;
+border-bottom:1px solid #222;
+}
+
+/* FORM */
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+.btn{
+display:block;
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:8px;
+text-decoration:none;
+text-align:center;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn-gold{
+background:#d4af37;
+color:black;
+}
+
+.btn-green{
+background:#25d366;
+color:white;
+}
+
+.btn:hover{
+transform:scale(1.03);
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="hero">
+<h1>VIP MEMBER</h1>
+<p>Exclusive Luxury Spa Experience</p>
+</div>
+
+<div class="container">
+
+<div class="grid">
+
+<!-- VIP PLAN -->
+<div class="card">
+<h2>VIP Gold</h2>
+<div class="price">Rp 199.000 / bulan</div>
+<ul>
+<li>✔ Diskon 10% semua layanan</li>
+<li>✔ Prioritas booking</li>
+<li>✔ Free welcome drink</li>
+</ul>
+<a class="btn btn-gold" onclick="joinVIP('Gold')">Join Gold</a>
+</div>
+
+<div class="card">
+<h2>VIP Platinum</h2>
+<div class="price">Rp 399.000 / bulan</div>
+<ul>
+<li>✔ Diskon 20% semua layanan</li>
+<li>✔ Priority therapist</li>
+<li>✔ Free aromatherapy upgrade</li>
+</ul>
+<a class="btn btn-gold" onclick="joinVIP('Platinum')">Join Platinum</a>
+</div>
+
+<div class="card">
+<h2>VIP Diamond</h2>
+<div class="price">Rp 699.000 / bulan</div>
+<ul>
+<li>✔ Diskon 35% semua layanan</li>
+<li>✔ VIP room access</li>
+<li>✔ Personal therapist</li>
+</ul>
+<a class="btn btn-gold" onclick="joinVIP('Diamond')">Join Diamond</a>
+</div>
+
+</div>
+
+<!-- REGISTER -->
+<div class="card" style="margin-top:40px;">
+<h2>Register VIP</h2>
+
+<input type="text" id="name" placeholder="Nama Lengkap">
+<input type="text" id="phone" placeholder="No WhatsApp">
+
+<a class="btn btn-green" onclick="registerVIP()">Daftar VIP Sekarang</a>
+
+</div>
+
+</div>
+
+<script>
+const API = "http://localhost:3000";
+
+/* =========================
+   JOIN VIP VIA WHATSAPP
+========================= */
+function joinVIP(type){
+const msg =
+`Halo Admin SevenSpa 👋
+
+Saya ingin join VIP *${type}*
+
+Apakah masih tersedia?`;
+
+window.open(
+`https://wa.me/6285212828441?text=${encodeURIComponent(msg)}`,
+"_blank"
+);
+}
+
+/* =========================
+   REGISTER VIP KE DATABASE
+========================= */
+async function registerVIP(){
+const name = document.getElementById("name").value;
+const phone = document.getElementById("phone").value;
+
+if(!name || !phone){
+alert("Isi data dulu!");
+return;
+}
+
+const res = await fetch(API + "/vip", {
+method:"POST",
+headers:{ "Content-Type":"application/json" },
+body: JSON.stringify({name,phone})
+});
+
+const data = await res.json();
+
+alert(data.msg || "VIP Registered!");
+}
+</script>
+
+</body>
+</html>

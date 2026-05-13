@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SevenMassageSpa - Luxury Spa</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#070a12;
+color:white;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874");
+background-size:cover;
+background-position:center;
+}
+
+.hero h1{
+font-size:50px;
+color:#d4af37;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+opacity:0.8;
+}
+
+/* BUTTON */
+.btn-group{
+margin-top:20px;
+}
+
+.btn{
+display:inline-block;
+padding:12px 20px;
+margin:5px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn-gold{
+background:#d4af37;
+color:black;
+}
+
+.btn-green{
+background:#25d366;
+color:white;
+}
+
+.btn-dark{
+background:#222;
+color:white;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+/* SECTION */
+.section{
+padding:60px 20px;
+text-align:center;
+}
+
+.card-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+max-width:1000px;
+margin:auto;
+}
+
+.card{
+background:#111;
+padding:20px;
+border-radius:15px;
+border:1px solid #333;
+transition:0.3s;
+}
+
+.card:hover{
+border-color:#d4af37;
+transform:translateY(-5px);
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+
+<h1>Seven Massage Spa</h1>
+<p>Luxury Hotel-Class Spa Experience</p>
+
+<div class="btn-group">
+<a href="services.html" class="btn btn-gold">View Services</a>
+<a href="booking.html" class="btn btn-green">Book Now</a>
+<a href="vip.html" class="btn btn-dark">VIP Member</a>
+<a href="admin.html" class="btn btn-dark">Admin</a>
+</div>
+
+</div>
+
+<!-- SECTION -->
+<div class="section">
+
+<h2 style="color:#d4af37;">Why Choose Us?</h2>
+
+<div class="card-container">
+
+<div class="card">
+<h3>Luxury Experience</h3>
+<p>Pelayanan kelas hotel bintang 5.</p>
+</div>
+
+<div class="card">
+<h3>Professional Therapist</h3>
+<p>Terapis berpengalaman & profesional.</p>
+</div>
+
+<div class="card">
+<h3>Fast Booking</h3>
+<p>Booking langsung via WhatsApp & system.</p>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

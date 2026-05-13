@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking - SevenMassageSpa</title>
+
+<style>
+body{
+font-family:Arial;
+background:#0b0f1a;
+color:white;
+padding:20px;
+}
+
+.container{
+max-width:500px;
+margin:auto;
+background:#111;
+padding:20px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+h1{
+text-align:center;
+color:#d4af37;
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#25d366;
+border:none;
+color:white;
+font-weight:bold;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.03);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Booking Spa</h1>
+
+<input type="text" id="name" placeholder="Nama Lengkap">
+<input type="text" id="phone" placeholder="No WhatsApp">
+
+<select id="service">
+<option value="">Pilih Layanan</option>
+<option>Traditional Massage</option>
+<option>Aromatherapy</option>
+<option>Hot Stone Massage</option>
+<option>VIP Royal Spa</option>
+</select>
+
+<input type="date" id="date">
+<input type="time" id="time">
+
+<button onclick="sendBooking()">BOOK NOW</button>
+
+</div>
+
+<script src="assets/app.js"></script>
+
+</body>
+</html>
